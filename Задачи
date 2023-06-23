@@ -1,4 +1,4 @@
-1.1 Создайте таблицу с именем "Databases" и полями "name" и "version".
+1.1 Создайте таблицу с именем "DBs" и полями "name" и "version".
 
 1.2 Заполните таблицу созданную в задании 1.1 названиями и версиями баз данных: MySQL 8.0, PostreSQL 15.3, Oracle 12.2.0.2, SQLite 3.42.0,
     MongoDB, Microsoft SQL Server 1.11, Redis 7.0.11, MariaDB 11.0.2, Firebase 12.3.1, Elasticsearch 8.8.0, DynamoDB 2019.11.21, Cassandra 4.1.2
