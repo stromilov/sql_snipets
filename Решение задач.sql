@@ -7,6 +7,19 @@ create table DBs(
 );
 
 1.2
+--MySQL
+insert DBs(name, version) values("MySQL", "8.0");
+insert DBs(name, version) values("PostgreSQL", "15.3");
+insert DBs(name, version) values("Oracle", "12.2.0.2");
+insert DBs(name, version) values("SQLite", "3.42.0");
+insert DBs(name, version) values("MongoDB", "6.0.5");
+insert DBs(name, version) values("Microsoft SQL Server", "1.11");
+insert DBs(name, version) values("Redis", "7.0.11");
+insert DBs(name, version) values("MariaDB", "11.0.2");
+insert DBs(name, version) values("Firebase", "12.3.1");
+insert DBs(name, version) values("Elasticsearch", "8.8.0");
+insert DBs(name, version) values("DynamoDB", "2019.11.21");
+insert DBs(name, version) values("Cassandra", "4.1.2");
 
 1.4
 --MySQL
