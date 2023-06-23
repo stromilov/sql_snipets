@@ -21,6 +21,10 @@ insert DBs(name, version) values("Elasticsearch", "8.8.0");
 insert DBs(name, version) values("DynamoDB", "2019.11.21");
 insert DBs(name, version) values("Cassandra", "4.1.2");
 
+1.3
+--MySQL
+select * from DBs;
+
 1.4
 --MySQL
 create table TV(
