@@ -145,7 +145,7 @@ FROM book
 WHERE author IN ('Булгаков М.А.', 'Достоевский Ф.М.');
 ```
 
-##### 4.10
+##### 4.10 ORDER BY
 Выборка данных с сортировкой
 ```sql
 SELECT title, author, price
@@ -153,7 +153,7 @@ FROM book
 ORDER BY title DESC;
 ```
 
-##### 4.11
+##### 4.11 LIKE
 Регулярные выражения
 
 Символ-шаблон |	Описание |	Пример
@@ -166,10 +166,12 @@ FROM book
 WHERE title LIKE 'Б%';
 ```
 
-##### 4.12
+##### 4.12 DISTINCT
 Выборка уникальных элементов
 ```sql
 SELECT DISTINCT author
 FROM book;
 ```
+
+##### 4.13 SUM and COUNT
 
