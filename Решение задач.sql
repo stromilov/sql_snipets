@@ -1,6 +1,6 @@
 1.1
 --MySQL
-create table Database(
+create table DBs(
   id      int          primary key auto_increment,
   name    varchar(30),
   version varchar(30)
