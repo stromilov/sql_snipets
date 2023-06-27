@@ -166,7 +166,7 @@ SELECT title
 FROM book
 WHERE title LIKE 'Б%';
 ```
-
+##### Групповые запросы
 ##### 4.12 DISTINCT
 Выборка уникальных элементов
 ```sql
