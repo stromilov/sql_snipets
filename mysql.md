@@ -24,9 +24,10 @@
     8. AND, OR, NOT
     9. BETWEEN, IN
     10. ORDER BY (ASC, DESC)
-    11. LIKE
-    12. DISTINCT
-    13. SUM и COUNT
+    11. LIKE  
+    Групповые запросы
+    13. DISTINCT
+    14. SUM и COUNT
 
 
 
