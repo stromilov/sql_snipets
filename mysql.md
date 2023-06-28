@@ -24,7 +24,8 @@
     8. AND, OR, NOT
     9. BETWEEN, IN
     10. ORDER BY (ASC, DESC)
-    11. LIKE  
+    11. LIKE
+    12. ROUND()
     Групповые запросы
     13. DISTINCT
     14. SUM() и COUNT()
@@ -164,15 +165,23 @@ SELECT title
 FROM book
 WHERE title LIKE 'Б%';
 ```
+
+##### 4.12 ROUND()
+Округление (само число, чисел после запятой)
+````sql
+SELECT ROUND(price * count) 
+FROM book;
+```
+
 ##### Групповые запросы
-##### 4.12 DISTINCT
+##### 4.13 DISTINCT
 Выборка уникальных элементов
 ```sql
 SELECT DISTINCT author
 FROM book;
 ```
 
-##### 4.13 SUM() and COUNT()
+##### 4.14 SUM() and COUNT()
 Сумма элементов и количество элементов
 ```sql
 SELECT author, sum(amount)
@@ -180,10 +189,20 @@ FROM book
 GROUP BY author;
 ```
 
-##### 4.14 MIN(), MAX(), AVG()
+##### 4.15 MIN(), MAX(), AVG()
 Минималный элемент, максимальный элемент, среднее арифметическое
 ```sql
 SELECT author, min(price)
 FROM book
 GROUP BY author;
 ```
+
+##### 4.16 HAVING
+Используется вместо WHERE в групповых запросах
+```sql
+SELECT MIN(price)
+FROM book
+GROUP BY author
+HAVING (price * amount) > 5000;
+```
+
