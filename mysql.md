@@ -175,4 +175,9 @@ FROM book;
 ```
 
 ##### 4.13 SUM and COUNT
-
+Группировка
+```sql
+SELECT author, sum(amount)
+FROM book
+GROUP BY author;
+```
