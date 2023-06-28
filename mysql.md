@@ -32,6 +32,16 @@
     15. MIN(), MAX(), AVG()
 
 
+Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
+
+FROM  
+WHERE  
+GROUP BY  
+HAVING  
+SELECT  
+ORDER BY  
+
+
 
 #### 2. CREATE
 ```sql
