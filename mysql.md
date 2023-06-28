@@ -16,7 +16,7 @@
 4. SELECT
     1. * 
     2. SELECT столбец
-    3. AS новое_имя_столбец FROM таблица
+    3. AS
     4. столбец * 10 FROM
     5. Математические функции
     6. IF
@@ -30,7 +30,18 @@
     13. DISTINCT
     14. SUM() и COUNT()
     15. MIN(), MAX(), AVG()
-
+5. Вложенные запросы
+    1. IN
+    2. ANY и ALL
+    3. SELECT (SELECT...)
+6. Корректировка данных
+    1. Добавление записей из другой таблицы
+    2. UPDATE
+    3. Обновление нескольких столбцов
+    4. Обновление в нескольких таблицах
+    5. DELETE
+    6. DELETE ... WHERE ...
+    7. CREATE 
 
 Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
 
@@ -73,10 +84,15 @@ FROM таблица;
 ```
 
 ##### 4.3 SELECT столбец AS
-Присвоение новых имен столбцам при формировании выборки
+Присвоение новых имен(алиас) столбцам или таблицам при формировании выборки
 ```sql
 SELECT столбец AS новое_имя_столбца
 FROM таблица;
+```
+Или занесения значения во все поля столбца
+```sql
+SELECT 5 AS amount
+FROM book;
 ```
 
 ##### 4.4 SELECT
@@ -215,4 +231,99 @@ FROM book
 GROUP BY author
 HAVING (price * amount) > 5000;
 ```
+#### 5 Вложенные запросы
+```sql
+SELECT title, author, price, amount
+FROM book
+WHERE price = (
+         SELECT MIN(price) 
+         FROM book
+);
+```
+##### 5.1 IN
+```sql
+SELECT title, author, amount, price
+FROM book
+WHERE author IN (
+        SELECT author 
+        FROM book 
+        GROUP BY author 
+        HAVING SUM(amount) >= 12
+);
+```      
 
+##### 5.2 ANY и ALL
+```sql
+SELECT title, author, amount, price
+FROM book
+WHERE amount < ALL (
+        SELECT AVG(amount) 
+        FROM book 
+        GROUP BY author 
+);
+```
+
+##### 5.3 SELECT (SELECT ...)
+Вложенный запрос как ещё один столбец в выводе
+```sql
+SELECT title, author, amount, 
+    (
+     SELECT AVG(amount) 
+     FROM book
+    ) AS Среднее_количество 
+FROM book
+WHERE abs(amount - (SELECT AVG(amount) FROM book)) >3;
+```
+
+##### 6 Корректировка данных
+```sql
+INSERT INTO book (title, author, price, amount) 
+SELECT title, author, price, amount 
+FROM supply;
+```
+
+##### 6.1 UPDATE
+Обновление данных
+```sql
+UPDATE book 
+SET price = 0.7 * price;
+```
+
+##### 6.2 UPDATE
+Обновление несколькоих столбцов
+UPDATE таблица SET поле1 = выражение1, поле2 = выражение2
+```sql
+UPDATE book 
+SET amount = amount - buy,
+    buy = 0;
+```
+
+##### 6.4 Обновление в нескольких таблицах
+```sql
+UPDATE book, supply 
+SET book.amount = book.amount + supply.amount
+WHERE book.title = supply.title AND book.author = supply.author;
+```
+
+##### 6.5 DELETE
+```sql
+DELETE FROM supply;
+```
+
+##### 6.6 DELETE ... WHERE ...
+```sql
+DELETE FROM supply 
+WHERE title IN (
+        SELECT title 
+        FROM book
+);
+```
+
+##### 6.7 CREATE
+Создание новой таблицы на основе старой
+```sql
+CREATE TABLE ordering AS
+SELECT author, title, 5 AS amount
+FROM book
+WHERE amount < 4;
+```
