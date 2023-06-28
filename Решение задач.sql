@@ -34,3 +34,17 @@ create table TV(
   diagonal decimal(3,2),
   price    decimal(12,2)
 );
+
+1.5
+--MySQL
+insert into TV(model, maker, diagonal, price) values
+  ("MS-200", "SONY", 27.5, 4150),
+  ("VR500", "JVC", 15, 520),
+  ("SuperVega", "SHARP", 21, 800),
+  ("HX24H", "DEXP", 24, 700),
+  ("Smart M5", "SAMSUNG", 24, 900),
+  ("UE43", "SAMSUNG", 43, 1100),
+  ("MI TV A2", "Xiaomi", 32, 1500);
+
+1.6
+--MySQL
