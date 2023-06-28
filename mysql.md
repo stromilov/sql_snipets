@@ -27,10 +27,8 @@
     11. LIKE  
     Групповые запросы
     13. DISTINCT
-    14. SUM и COUNT
-
-
-
+    14. SUM() и COUNT()
+    15. MIN(), MAX(), AVG()
 
 
 
@@ -174,10 +172,18 @@ SELECT DISTINCT author
 FROM book;
 ```
 
-##### 4.13 SUM and COUNT
-Группировка
+##### 4.13 SUM() and COUNT()
+Сумма элементов и количество элементов
 ```sql
 SELECT author, sum(amount)
+FROM book
+GROUP BY author;
+```
+
+##### 4.14 MIN(), MAX(), AVG()
+Минималный элемент, максимальный элемент, среднее арифметическое
+```sql
+SELECT author, min(price)
 FROM book
 GROUP BY author;
 ```
