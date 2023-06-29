@@ -23,7 +23,7 @@
     7. WHERE
     8. AND, OR, NOT
     9. BETWEEN, IN
-    10. ORDER BY (ASC, DESC)
+    10. ORDER BY [ASC, DESC]
     11. LIKE
     12. ROUND()
     Групповые запросы
@@ -171,7 +171,7 @@ FROM book
 WHERE author IN ('Булгаков М.А.', 'Достоевский Ф.М.');
 ```
 
-##### 4.10 ORDER BY
+##### 4.10 ORDER BY [ASC, DESC]
 Выборка данных с сортировкой
 ```sql
 SELECT title, author, price
