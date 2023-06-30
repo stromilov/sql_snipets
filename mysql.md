@@ -41,7 +41,9 @@
     4. Обновление в нескольких таблицах
     5. DELETE
     6. DELETE ... WHERE ...
-    7. CREATE 
+    7. CREATE
+7. Связь между таблицами
+    1. FOREIGN KEY REFERENCES
 
 Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
 
@@ -327,3 +329,23 @@ SELECT author, title, 5 AS amount
 FROM book
 WHERE amount < 4;
 ```
+
+##### 7 Связь с другими таблицами
+    Один ко многим   <----
+    Многие ко многим <--->
+    
+##### 7.1 FOREIGN KEY REFERENCES 
+```sql
+CREATE TABLE book (
+    book_id INT PRIMARY KEY AUTO_INCREMENT, 
+    title VARCHAR(50), 
+    author_id INT NOT NULL, 
+    price DECIMAL(8,2), 
+    amount INT, 
+    FOREIGN KEY (author_id)  REFERENCES author (author_id) 
+);
+```
+
+##### 7.2 ON DELETE
+CASCADE
+SET NULL
