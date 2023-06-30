@@ -44,6 +44,11 @@
     7. CREATE
 7. Связь между таблицами
     1. FOREIGN KEY REFERENCES
+    2. ON DELETE
+        1. CASCADE
+        2. SET NULL
+        3. SET DEFAULT
+        4. RESTRICT
 
 Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
 
@@ -196,7 +201,7 @@ WHERE title LIKE 'Б%';
 
 ##### 4.12 ROUND()
 Округление (само число, чисел после запятой)
-````sql
+```sql
 SELECT ROUND(price * count) 
 FROM book;
 ```
@@ -277,7 +282,7 @@ FROM book
 WHERE abs(amount - (SELECT AVG(amount) FROM book)) >3;
 ```
 
-##### 6 Корректировка данных
+#### 6 Корректировка данных
 ```sql
 INSERT INTO book (title, author, price, amount) 
 SELECT title, author, price, amount 
@@ -330,11 +335,11 @@ FROM book
 WHERE amount < 4;
 ```
 
-##### 7 Связь с другими таблицами
+#### 7 Связь с другими таблицами
     Один ко многим   <----
     Многие ко многим <--->
     
-##### 7.1 FOREIGN KEY REFERENCES 
+###### 7.1 FOREIGN KEY REFERENCES 
 ```sql
 CREATE TABLE book (
     book_id INT PRIMARY KEY AUTO_INCREMENT, 
@@ -346,6 +351,44 @@ CREATE TABLE book (
 );
 ```
 
-##### 7.2 ON DELETE
-CASCADE
-SET NULL
+###### 7.2 ON DELETE
+Действия при удалении
+    
+###### 7.2.1 CASCADE
+Автоматически удаляет строки из зависимой таблицы при удалении  связанных строк в главной таблице
+```sql
+CREATE TABLE book (
+    book_id INT PRIMARY KEY AUTO_INCREMENT, 
+    title VARCHAR(50), 
+    author_id INT NOT NULL, 
+    price DECIMAL(8,2), 
+    amount INT, 
+    FOREIGN KEY (author_id)  REFERENCES author (author_id) ON DELETE CASCADE
+);
+```
+
+###### 7.2.2 SET NULL
+При удалении  связанной строки из главной таблицы устанавливает для столбца внешнего ключа значение NULL
+```sql
+CREATE TABLE book (
+    book_id INT PRIMARY KEY AUTO_INCREMENT, 
+    title VARCHAR(50), 
+    author_id INT NOT NULL, 
+    price DECIMAL(8,2), 
+    amount INT, 
+    FOREIGN KEY (author_id)  REFERENCES author (author_id) ON DELETE SET NULL
+);
+```
+
+###### 7.2.3 SET DEFAULT
+Значение внешнего ключа устанавливается в значение по умолчанию для данного столбца.
+```sql
+CREATE TABLE book (
+    book_id INT PRIMARY KEY AUTO_INCREMENT, 
+    title VARCHAR(50), 
+    author_id INT NOT NULL, 
+    price DECIMAL(8,2), 
+    amount INT, 
+    FOREIGN KEY (author_id)  REFERENCES author (author_id) ON DELETE SET DEFAULT
+);
+```
