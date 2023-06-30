@@ -49,6 +49,8 @@
         2. SET NULL
         3. SET DEFAULT
         4. RESTRICT
+    3. JOIN
+        1. INNER JOIN
 
 Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
 
@@ -391,4 +393,48 @@ CREATE TABLE book (
     amount INT, 
     FOREIGN KEY (author_id)  REFERENCES author (author_id) ON DELETE SET DEFAULT
 );
+```
+
+###### 7.2.4 RESTRICT
+Отклоняет удаление строк в главной таблице при наличии связанных строк в зависимой таблице
+```sql
+CREATE TABLE book (
+    book_id INT PRIMARY KEY AUTO_INCREMENT, 
+    title VARCHAR(50), 
+    author_id INT NOT NULL, 
+    price DECIMAL(8,2), 
+    amount INT, 
+    FOREIGN KEY (author_id)  REFERENCES author (author_id) ON DELETE RESTRICT
+);
+```
+
+#### 7.3 JOIN
+###### 7.3.1 INNER JOIN
+```sql
+SELECT title, name_author
+FROM 
+    author INNER JOIN book
+    ON author.author_id = book.author_id;
+```
+
+###### 7.3.2 LEFT или RIGHT JOIN
+```sql
+SELECT name_author, title 
+FROM author LEFT JOIN book
+     ON author.author_id = book.author_id
+ORDER BY name_author; 
+```
+
+###### 7.3.3 CROSS JOIN
+Декартово произведение таблиц
+```sql
+SELECT name_author, name_genre
+FROM 
+    author, genre;
+
+или
+
+SELECT name_author, name_genre
+FROM 
+    author CROSS JOIN genre;
 ```
