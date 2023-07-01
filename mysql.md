@@ -25,7 +25,7 @@
     9. BETWEEN, IN
     10. ORDER BY [ASC, DESC]
     11. LIKE
-    12. ROUND()
+    12. ROUND()  
     Групповые запросы
     13. DISTINCT
     14. SUM() и COUNT()
