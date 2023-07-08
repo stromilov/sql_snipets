@@ -1,56 +1,56 @@
 #### MySQL
 
-1. SHOW
-    1.  ```SHOW DATABASES;                             список баз данных```
-    2.  ```SHOW TABLES [FROM db_name];                 список таблиц в базе```
-    3.  ```SHOW COLUMNS FROM таблица [FROM db_name]; или DESC таблица;  список столбцов в таблице```
-    4.  ```SHOW CREATE TABLE table_name;               показать структуру таблицы в формате «CREATE TABLE»```
-    5.  ```SHOW INDEX FROM tbl_name;                   список индексов```
-    6.  ```SHOW GRANTS FOR user [FROM db_name];        привилегии для пользователя.```
-    7.  ```SHOW VARIABLES;                             значения системных переменных```
-    8.  ```SHOW [FULL] PROCESSLIST;                    статистика по mysqld процессам```
-    9.  ```SHOW STATUS;                                общая статистика```
-    10. ```SHOW TABLE STATUS [FROM db_name];           статистика по всем таблицам в базе```
+1. SHOW  
+    1.1.  ```SHOW DATABASES;                             список баз данных```  
+    1.2.  ```SHOW TABLES [FROM db_name];                 список таблиц в базе```  
+    1.3.  ```SHOW COLUMNS FROM таблица [FROM db_name]; или DESC таблица;  список столбцов в таблице```  
+    1.4.  ```SHOW CREATE TABLE table_name;               показать структуру таблицы в формате «CREATE TABLE»```  
+    1.5.  ```SHOW INDEX FROM tbl_name;                   список индексов```  
+    1.6.  ```SHOW GRANTS FOR user [FROM db_name];        привилегии для пользователя.```  
+    1.7.  ```SHOW VARIABLES;                             значения системных переменных```  
+    1.8.  ```SHOW [FULL] PROCESSLIST;                    статистика по mysqld процессам```  
+    1.9.  ```SHOW STATUS;                                общая статистика```  
+    1.10. ```SHOW TABLE STATUS [FROM db_name];           статистика по всем таблицам в базе```  
 2. CREATE
 3. INSERT
-4. SELECT
-    1. * 
-    2. SELECT столбец
-    3. AS
-    4. столбец * 10 FROM
-    5. Математические функции
-    6. IF
-    7. WHERE
-    8. AND, OR, NOT
-    9. BETWEEN, IN
-    10. ORDER BY [ASC, DESC]
-    11. LIKE
-    12. ROUND()  
-    Групповые запросы
-    13. DISTINCT
-    14. SUM() и COUNT()
-    15. MIN(), MAX(), AVG()
-5. Вложенные запросы
-    1. IN
-    2. ANY и ALL
-    3. SELECT (SELECT...)
-6. Корректировка данных
-    1. Добавление записей из другой таблицы
-    2. UPDATE
-    3. Обновление нескольких столбцов
-    4. Обновление в нескольких таблицах
-    5. DELETE
-    6. DELETE ... WHERE ...
-    7. CREATE
-7. Связь между таблицами
-    1. FOREIGN KEY REFERENCES
-    2. ON DELETE
-        1. CASCADE
-        2. SET NULL
-        3. SET DEFAULT
-        4. RESTRICT
-    3. JOIN
-        1. INNER JOIN
+4. SELECT  
+    4.1. *   
+    4.2. SELECT столбец  
+    4.3. AS  
+    4.4. столбец * 10 FROM  
+    4.5. Математические функции  
+    4.6. IF  
+    4.7. WHERE  
+    4.8. AND, OR, NOT  
+    4.9. BETWEEN, IN  
+    4.10. ORDER BY [ASC, DESC]  
+    4.11. LIKE  
+    4.12. ROUND()    
+    Групповые запросы  
+    4.13. DISTINCT  
+    4.14. SUM() и COUNT()  
+    4.15. MIN(), MAX(), AVG()  
+5. Вложенные запросы  
+    5.1. IN  
+    5.2. ANY и ALL  
+    5.3. SELECT (SELECT...)  
+6. Корректировка данных  
+    6.1. Добавление записей из другой таблицы  
+    6.2. UPDATE  
+    6.3. Обновление нескольких столбцов  
+    6.4. Обновление в нескольких таблицах  
+    6.5. DELETE  
+    6.6. DELETE ... WHERE ...  
+    6.7. CREATE  
+7. Связь между таблицами  
+    7.1. FOREIGN KEY REFERENCES  
+    7.2. ON DELETE  
+        7.2.1. CASCADE  
+        7.2.2. SET NULL  
+        7.2.3. SET DEFAULT  
+        7.2.4. RESTRICT  
+    3. JOIN  
+        7.3.1. INNER JOIN  
 
 Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
 
