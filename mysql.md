@@ -50,7 +50,9 @@
         7.2.3. SET DEFAULT  
         7.2.4. RESTRICT  
     3. JOIN  
-        7.3.1. INNER JOIN  
+        7.3.1. INNER JOIN
+        7.3.2. LEFT и RIGHT JOIN
+        7.3.3. CROSS JOIN
 
 Порядок выполнения  SQL запроса на выборку на СЕРВЕРЕ:
 
