@@ -51,8 +51,15 @@
     6.4. Обновление в нескольких таблицах  
     6.5. DELETE  
     6.6. DELETE ... WHERE ...  
-    6.7. CREATE  
-8. Связь между таблицами  
+    6.7. CREATE
+    6.8. ALTER TABLE ... ADD ...
+        6.8.1. ALTER TABLE ... ADD ... FIRST
+        6.8.2. ALTER TABLE ... ADD ... SECOND
+        6.8.3. ALTER TABLE ... DROP COLUMN
+        6.8.4. ALTER TABLE ... DROP ...
+        6.8.5. ALTER TABLE ... CHANGE ...
+    6.9. DROP TABLE
+9. Связь между таблицами  
     7.1. FOREIGN KEY REFERENCES  
     7.2. ON DELETE  
         7.2.1. CASCADE  
@@ -348,6 +355,62 @@ SELECT author, title, 5 AS amount
 FROM book
 WHERE amount < 4;
 ```
+
+##### 6.8 ALTER TABLE ... ADD ...
+Вставляет столбец после последнего
+```sql
+ALTER TABLE applicant
+ADD str_id int;
+```
+
+###### 6.8.1 ALTER TABLE ... ADD ... FIRST
+Вставляет столбец перед первым
+```sql
+ALTER TABLE applicant
+ADD str_id int FIRST;
+```
+
+###### 6.8.2 ALTER TABLE ... ADD ... AFTER ...
+Вставляет столбец после указанного столбца
+```sql
+ALTER TABLE applicant
+ADD str_id int AFTER enrollee_id;
+```
+
+###### 6.8.3 ALTER TABLE ... DROP COLUMN ... 
+Удаляет столбец с заданным именем
+```sql
+ALTER TABLE applicant
+DROP COLUMN str_id;
+```
+
+###### 6.8.4 ALTER TABLE ... DROP... 
+Ключевое слово COLUMN не обязательно указывать
+```sql
+ALTER TABLE applicant
+DROP str_id;
+```
+
+Удаляет два столбца
+```sql
+ALTER TABLE applicant
+DROP str_id, DROP enrollee_id;
+```
+
+###### 6.8.5 ALTER TABLE ... CHANGE ... 
+Переименования столбца
+```sql
+ALTER TABLE applicant
+CHANGE str_id new_str_id int;
+```
+
+
+###### 6.9. DROP TABLE
+Удаление таблицы
+```sql
+DROP TABLE book;
+```
+
 
 #### 7 Связь с другими таблицами
     Один ко многим   <----
