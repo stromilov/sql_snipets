@@ -39,7 +39,9 @@
     Групповые запросы  
     4.13. DISTINCT  
     4.14. SUM() и COUNT()  
-    4.15. MIN(), MAX(), AVG()  
+    4.15. MIN(), MAX(), AVG()
+    4.16. HAVING
+    4.17. LEFT()
 6. Вложенные запросы  
     5.1. IN  
     5.2. ANY и ALL  
@@ -251,6 +253,7 @@ FROM book
 GROUP BY author;
 ```
 
+
 ##### 4.16 HAVING
 Используется вместо WHERE в групповых запросах
 ```sql
@@ -259,6 +262,16 @@ FROM book
 GROUP BY author
 HAVING (price * amount) > 5000;
 ```
+
+
+##### 4.17 LEFT
+Ограничение вывода строки
+```sql
+SELECT LEFT(long_name, 30)
+FROM book;
+```
+
+
 #### 5 Вложенные запросы
 ```sql
 SELECT title, author, price, amount
@@ -268,6 +281,8 @@ WHERE price = (
          FROM book
 );
 ```
+
+
 ##### 5.1 IN
 ```sql
 SELECT title, author, amount, price
