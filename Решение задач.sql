@@ -89,7 +89,7 @@ create table client(
     foreign key (city_id) references city (city_id) on delete cascade
     );
 
-create table buy2(
+create table buy(
     buy_id          int primary key auto_increment,
     buy_description varchar(100),
     client_id       int,
